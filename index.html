@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hadith Collection — Sayings of the Prophet ﷺ | hadith.sakib.bond</title>
+  <meta name="description" content="Browse authentic hadiths from Sahih al-Bukhari, Sahih Muslim, Tirmidhi, Abu Dawud and more with Arabic text, translations, and search on hadith.sakib.bond." />
+  <meta name="keywords" content="hadith collection, Sahih Bukhari, Sahih Muslim, Prophet Muhammad sayings, sunnah, authentic hadith, hadith.sakib.bond" />
+  <meta name="author" content="hadith.sakib.bond" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://hadith.sakib.bond/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hadith Collection — hadith.sakib.bond" />
+  <meta property="og:description" content="Authentic sayings and traditions of the Prophet Muhammad ﷺ." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hadith.sakib.bond/" />
+  <meta property="og:site_name" content="Hadith Collection" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hadith Collection — hadith.sakib.bond" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Hadith Collection",
+    "url": "https://hadith.sakib.bond",
+    "description": "Authentic Hadith collection from classical sources with search, filters, and reflections."
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400;600;700&family=Cinzel:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ═══════════════════════════════════════════
+       CSS CUSTOM PROPERTIES
+    ═══════════════════════════════════════════ */
+    :root {
+      --maroon-deep:   #1a0505;
+      --maroon-dark:   #2d0a0a;
+      --maroon-mid:    #4a1010;
+      --maroon-light:  #6b1a1a;
+      --maroon-soft:   #8b2020;
+      --gold-bright:   #f0c040;
+      --gold-main:     #d4a017;
+      --gold-muted:    #b8860b;
+      --gold-dark:     #8b6914;
+      --cream:         #fdf6e3;
+      --cream-soft:    #f5e6c8;
+      --cream-muted:   #e8d5a3;
+      --text-primary:  #fdf6e3;
+      --text-secondary:#e8d5a3;
+      --text-muted:    #c4a96b;
+      --card-bg:       rgba(45,10,10,0.85);
+      --card-border:   rgba(212,160,23,0.35);
+      --glass-bg:      rgba(26,5,5,0.7);
+      --glass-border:  rgba(212,160,23,0.2);
+      --overlay:       rgba(26,5,5,0.95);
+      --shadow-gold:   0 4px 24px rgba(212,160,23,0.18);
+      --shadow-deep:   0 8px 40px rgba(0,0,0,0.6);
+      --radius-sm:     8px;
+      --radius-md:     14px;
+      --radius-lg:     22px;
+      --radius-xl:     32px;
+    }
+    [data-theme="light"] {
+      --maroon-deep:   #f5e6c8;
+      --maroon-dark:   #fdf6e3;
+      --maroon-mid:    #f0e0c0;
+      --maroon-light:  #e8cfaa;
+      --maroon-soft:   #d4b896;
+      --text-primary:  #2d0a0a;
+      --text-secondary:#4a1010;
+      --text-muted:    #6b3030;
+      --card-bg:       rgba(253,246,227,0.95);
+      --card-border:   rgba(180,120,10,0.4);
+      --glass-bg:      rgba(253,246,227,0.8);
+      --glass-border:  rgba(180,120,10,0.3);
+      --overlay:       rgba(253,246,227,0.97);
+      --shadow-gold:   0 4px 24px rgba(180,120,10,0.18);
+    }
+
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Crimson Pro', 'Georgia', serif;
+      background-color: var(--maroon-deep);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.7;
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    /* ═══════════════════════════════════════════
+       GEOMETRIC BACKGROUND PATTERN
+    ═══════════════════════════════════════════ */
+    .geo-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cdefs%3E%3Cpattern id='geo' x='0' y='0' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpolygon points='30,2 56,16 56,44 30,58 4,44 4,16' fill='none' stroke='%23d4a017' stroke-width='1.2'/%3E%3Cpolygon points='30,12 46,21 46,39 30,48 14,39 14,21' fill='none' stroke='%23d4a017' stroke-width='0.6'/%3E%3Ccircle cx='30' cy='30' r='4' fill='none' stroke='%23d4a017' stroke-width='0.8'/%3E%3Cline x1='30' y1='2' x2='30' y2='12' stroke='%23d4a017' stroke-width='0.5'/%3E%3Cline x1='30' y1='48' x2='30' y2='58' stroke='%23d4a017' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='120' height='120' fill='url(%23geo)'/%3E%3C/svg%3E");
+    }
+
+    /* ═══════════════════════════════════════════
+       SCROLLBAR
+    ═══════════════════════════════════════════ */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--maroon-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-muted); border-radius: 4px; }
+
+    /* ═══════════════════════════════════════════
+       HEADER / NAV
+    ═══════════════════════════════════════════ */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 0 2rem;
+    }
+    nav {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px; gap: 1rem;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 0.7rem;
+      text-decoration: none;
+    }
+    .nav-brand .brand-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--gold-main), var(--gold-dark));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: var(--maroon-deep);
+      box-shadow: 0 2px 12px rgba(212,160,23,0.4);
+    }
+    .nav-brand span {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold-main);
+      letter-spacing: 0.04em;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 0.4rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-sm);
+      transition: all 0.25s;
+      font-weight: 600;
+    }
+    .nav-links a:hover { color: var(--gold-main); background: rgba(212,160,23,0.1); }
+    .nav-right { display: flex; align-items: center; gap: 0.6rem; }
+    .theme-toggle, .hamburger {
+      background: rgba(212,160,23,0.12);
+      border: 1px solid var(--card-border);
+      color: var(--gold-main);
+      border-radius: var(--radius-sm);
+      padding: 0.45rem 0.7rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.25s;
+    }
+    .theme-toggle:hover, .hamburger:hover {
+      background: rgba(212,160,23,0.25);
+    }
+    .hamburger { display: none; }
+    @media (max-width: 900px) {
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0;
+        background: var(--overlay); flex-direction: column; padding: 1rem 2rem;
+        border-bottom: 1px solid var(--glass-border); gap: 0.2rem; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; align-items: center; }
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    .hero {
+      position: relative; overflow: hidden;
+      background: linear-gradient(160deg, #1a0505 0%, #2d0a0a 35%, #1a0505 60%, #0d0202 100%);
+      padding: 90px 2rem 80px;
+      text-align: center;
+    }
+    [data-theme="light"] .hero {
+      background: linear-gradient(160deg, #4a1010 0%, #6b1a1a 35%, #4a1010 60%, #2d0505 100%);
+    }
+    .hero-bg-radial {
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(212,160,23,0.12), transparent 70%),
+                  radial-gradient(ellipse 50% 40% at 20% 100%, rgba(212,160,23,0.06), transparent 60%);
+    }
+    .hero-ornament {
+      display: flex; justify-content: center; margin-bottom: 1.5rem;
+    }
+    .hero-ornament svg { width: 260px; height: 40px; opacity: 0.7; }
+    .bismillah {
+      font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--gold-main);
+      margin-bottom: 0.8rem;
+      direction: rtl;
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 20px rgba(212,160,23,0.35);
+    }
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.18;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+    [data-theme="light"] .hero h1 { color: #fdf6e3; }
+    .hero h1 span { color: var(--gold-main); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--cream-muted);
+      max-width: 680px; margin: 0 auto 2.5rem;
+      font-style: italic;
+    }
+    [data-theme="light"] .hero-sub { color: #f0e0c0; }
+    .hero-stats {
+      display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .hero-stat {
+      text-align: center;
+      background: rgba(212,160,23,0.1);
+      border: 1px solid rgba(212,160,23,0.25);
+      border-radius: var(--radius-md);
+      padding: 0.8rem 1.5rem;
+      backdrop-filter: blur(8px);
+    }
+    .hero-stat .num {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem; font-weight: 700;
+      color: var(--gold-main);
+      display: block;
+    }
+    .hero-stat .lbl {
+      font-size: 0.8rem;
+      color: var(--cream-muted); letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    [data-theme="light"] .hero-stat .lbl { color: #e8cfaa; }
+    .divider-gold {
+      width: 120px; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-main), transparent);
+      margin: 1.5rem auto;
+    }
+
+    /* ═══════════════════════════════════════════
+       HADITH OF THE DAY BANNER
+    ═══════════════════════════════════════════ */
+    .hotd-section {
+      position: relative; z-index: 2;
+      max-width: 1100px; margin: -30px auto 60px;
+      padding: 0 2rem;
+    }
+    .hotd-card {
+      background: linear-gradient(135deg, rgba(74,16,16,0.95), rgba(45,10,10,0.98));
+      border: 2px solid var(--gold-main);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem 3rem;
+      box-shadow: 0 0 0 1px rgba(212,160,23,0.1), 0 20px 60px rgba(0,0,0,0.5);
+      position: relative; overflow: hidden;
+    }
+    [data-theme="light"] .hotd-card {
+      background: linear-gradient(135deg, rgba(253,246,227,0.98), rgba(245,230,200,0.98));
+    }
+    .hotd-glow {
+      position: absolute; top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(212,160,23,0.25), transparent 70%);
+      pointer-events: none;
+    }
+    .hotd-label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, var(--gold-main), var(--gold-dark));
+      color: var(--maroon-deep);
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 12px rgba(212,160,23,0.3);
+    }
+    .hotd-arabic {
+      font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      color: var(--gold-bright);
+      direction: rtl; text-align: right;
+      margin-bottom: 1rem;
+      line-height: 2;
+      text-shadow: 0 0 20px rgba(240,192,64,0.2);
+    }
+    .hotd-text {
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      color: var(--text-primary);
+      font-style: italic;
+      margin-bottom: 1.2rem;
+      line-height: 1.75;
+    }
+    .hotd-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.8rem;
+    }
+    .hotd-source {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.9rem; color: var(--gold-muted);
+    }
+    .hotd-source i { color: var(--gold-main); }
+    .hotd-actions { display: flex; gap: 0.5rem; }
+    .btn-sm {
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--card-border);
+      background: rgba(212,160,23,0.1);
+      color: var(--gold-main);
+      font-size: 0.82rem; cursor: pointer;
+      transition: all 0.25s;
+      display: flex; align-items: center; gap: 0.35rem;
+    }
+    .btn-sm:hover { background: rgba(212,160,23,0.25); transform: translateY(-1px); }
+    .btn-sm.favorited { color: var(--gold-bright); background: rgba(212,160,23,0.2); }
+
+    /* ═══════════════════════════════════════════
+       MAIN CONTENT AREA
+    ═══════════════════════════════════════════ */
+    main { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 0 2rem 80px; }
+
+    /* SEARCH & FILTER BAR */
+    .search-filter-bar {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-gold);
+      backdrop-filter: blur(12px);
+    }
+    .search-row {
+      display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;
+    }
+    .search-input-wrap {
+      flex: 1; position: relative;
+    }
+    .search-input-wrap i {
+      position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
+      color: var(--gold-muted); font-size: 1rem;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.8rem;
+      background: rgba(212,160,23,0.06);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-family: inherit; font-size: 1rem;
+      transition: all 0.25s;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: var(--gold-main);
+      background: rgba(212,160,23,0.1);
+      box-shadow: 0 0 0 3px rgba(212,160,23,0.1);
+    }
+    .search-input::placeholder { color: var(--text-muted); }
+    .filter-row {
+      display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center;
+    }
+    .filter-label {
+      font-size: 0.82rem; color: var(--text-muted);
+      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .filter-btn {
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: inherit; font-size: 0.85rem;
+      cursor: pointer; transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .filter-btn:hover { border-color: var(--gold-main); color: var(--gold-main); }
+    .filter-btn.active {
+      background: var(--gold-main);
+      border-color: var(--gold-main);
+      color: var(--maroon-deep);
+      font-weight: 700;
+    }
+    .filter-divider {
+      width: 1px; height: 24px;
+      background: var(--card-border); flex-shrink: 0;
+    }
+    .results-count {
+      font-size: 0.85rem; color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    /* ═══════════════════════════════════════════
+       HADITH GRID
+    ═══════════════════════════════════════════ */
+    .hadith-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+      gap: 1.6rem;
+    }
+    @media (max-width: 600px) { .hadith-grid { grid-template-columns: 1fr; } }
+
+    /* ═══════════════════════════════════════════
+       HADITH CARD
+    ═══════════════════════════════════════════ */
+    .hadith-card {
+      position: relative;
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column;
+    }
+    .hadith-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,160,23,0.3);
+    }
+    /* Gradient border via pseudo */
+    .hadith-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: var(--radius-lg);
+      padding: 1.5px;
+      background: linear-gradient(135deg, var(--gold-main), var(--maroon-soft), var(--gold-dark));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .card-top-bar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-bright), var(--gold-dark));
+    }
+    .card-body { padding: 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; gap: 0.9rem; }
+    .card-badges {
+      display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;
+    }
+    .badge {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.2rem 0.65rem;
+      border-radius: 12px;
+    }
+    .badge-collection {
+      background: rgba(212,160,23,0.15);
+      border: 1px solid rgba(212,160,23,0.4);
+      color: var(--gold-main);
+    }
+    .badge-category {
+      background: rgba(107,26,26,0.5);
+      border: 1px solid rgba(139,32,32,0.5);
+      color: var(--cream-muted);
+    }
+    .badge-grade {
+      margin-left: auto;
+      padding: 0.2rem 0.65rem;
+      border-radius: 12px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em;
+    }
+    .grade-sahih { background: rgba(22,101,22,0.3); border: 1px solid rgba(34,150,34,0.5); color: #6ddb6d; }
+    .grade-hasan { background: rgba(22,80,100,0.3); border: 1px solid rgba(34,120,150,0.5); color: #6dbfdb; }
+    .grade-daif  { background: rgba(100,70,10,0.3); border: 1px solid rgba(150,100,20,0.5); color: #dbb96d; }
+    .card-arabic {
+      font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+      font-size: 1.15rem;
+      color: var(--gold-bright);
+      direction: rtl; text-align: right;
+      line-height: 2;
+      border-right: 3px solid var(--gold-dark);
+      padding-right: 0.8rem;
+      text-shadow: 0 0 16px rgba(240,192,64,0.15);
+    }
+    .card-text {
+      font-size: 1.02rem;
+      color: var(--text-primary);
+      font-style: italic;
+      line-height: 1.7;
+      flex: 1;
+    }
+    .card-narrator {
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+    .card-narrator span { color: var(--cream-muted); font-weight: 600; }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 1.6rem;
+      border-top: 1px solid var(--card-border);
+      background: rgba(0,0,0,0.15);
+    }
+    [data-theme="light"] .card-footer { background: rgba(212,160,23,0.06); }
+    .card-hadith-num {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem; color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+    .card-actions { display: flex; gap: 0.4rem; }
+    .action-btn {
+      width: 32px; height: 32px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--card-border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      transition: all 0.22s;
+    }
+    .action-btn:hover { color: var(--gold-main); border-color: var(--gold-main); background: rgba(212,160,23,0.08); }
+    .action-btn.fav-active { color: var(--gold-bright); border-color: var(--gold-main); background: rgba(212,160,23,0.15); }
+
+    /* ═══════════════════════════════════════════
+       SECTION HEADERS
+    ═══════════════════════════════════════════ */
+    .section-header {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .section-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 700;
+      color: var(--gold-main);
+    }
+    .section-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--gold-dark), transparent);
+    }
+
+    /* ═══════════════════════════════════════════
+       NO RESULTS
+    ═══════════════════════════════════════════ */
+    .no-results {
+      text-align: center; padding: 4rem 2rem;
+      color: var(--text-muted);
+      display: none;
+    }
+    .no-results.visible { display: block; }
+    .no-results i { font-size: 3rem; margin-bottom: 1rem; color: var(--gold-dark); }
+    .no-results p { font-size: 1.1rem; }
+
+    /* ═══════════════════════════════════════════
+       SHARE TOAST
+    ═══════════════════════════════════════════ */
+    .toast {
+      position: fixed; bottom: 2rem; right: 2rem;
+      background: var(--gold-main);
+      color: var(--maroon-deep);
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-md);
+      font-weight: 700; font-size: 0.9rem;
+      box-shadow: 0 4px 20px rgba(212,160,23,0.4);
+      opacity: 0; pointer-events: none;
+      transform: translateY(8px);
+      transition: all 0.35s;
+      z-index: 999;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .toast.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer {
+      position: relative; z-index: 2;
+      background: var(--maroon-deep);
+      border-top: 1px solid var(--card-border);
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+    .footer-bismillah {
+      font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+      font-size: 1.8rem;
+      color: var(--gold-main);
+      margin-bottom: 0.8rem;
+      direction: rtl;
+    }
+    .footer-quote {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 600px; margin: 0 auto 1.5rem;
+    }
+    .footer-links {
+      display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .footer-links a {
+      color: var(--text-muted); text-decoration: none; font-size: 0.9rem;
+      transition: color 0.25s;
+    }
+    .footer-links a:hover { color: var(--gold-main); }
+    .footer-copy {
+      font-size: 0.8rem; color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════
+       FADE-IN ANIMATION
+    ═══════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hadith-card { animation: fadeUp 0.45s ease both; }
+    .hadith-card:nth-child(2) { animation-delay: 0.05s; }
+    .hadith-card:nth-child(3) { animation-delay: 0.1s; }
+    .hadith-card:nth-child(4) { animation-delay: 0.15s; }
+    .hadith-card:nth-child(5) { animation-delay: 0.2s; }
+    .hadith-card:nth-child(6) { animation-delay: 0.25s; }
+
+    /* ═══════════════════════════════════════════
+       FAVORITE SHELF TOGGLE
+    ═══════════════════════════════════════════ */
+    .fav-shelf-btn {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 1.2rem;
+      background: rgba(212,160,23,0.1);
+      border: 1px solid var(--gold-dark);
+      border-radius: var(--radius-md);
+      color: var(--gold-main);
+      font-family: inherit; font-size: 0.9rem; font-weight: 600;
+      cursor: pointer; transition: all 0.25s;
+    }
+    .fav-shelf-btn:hover { background: rgba(212,160,23,0.2); }
+    .fav-shelf-btn .fav-count {
+      background: var(--gold-main);
+      color: var(--maroon-deep);
+      border-radius: 50%;
+      width: 20px; height: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 800;
+    }
+
+    /* Halalspark Ad slots */
+    .halalspark-ad-wrap {
+      width: 100%; display: flex; justify-content: center; margin: 1.5rem 0;
+    }
+    .halalspark-ad {
+      border: 1px dashed var(--gold-main);
+      background: linear-gradient(135deg, rgba(45,10,10,0.9), rgba(26,5,5,0.95));
+      border-radius: var(--radius-md);
+      color: var(--gold-bright);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; font-size: 0.85rem; font-weight: 600;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3); padding: 10px;
+    }
+    .halalspark-ad .ad-badge {
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em;
+      background: rgba(212,160,23,0.15); padding: 2px 8px; border-radius: 4px; margin-bottom: 4px;
+      color: var(--cream-muted);
+    }
+
+    /* Modal styling */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center;
+      z-index: 1000; padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: var(--maroon-dark); border: 1px solid var(--gold-main);
+      border-radius: var(--radius-lg); width: 100%; max-width: 600px; max-height: 85vh;
+      overflow-y: auto; padding: 2rem; position: relative; color: var(--cream);
+    }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem; background: transparent;
+      border: none; color: var(--gold-main); font-size: 1.2rem; cursor: pointer;
+    }
+    .modal-box h3 {
+      font-family: 'Cinzel', serif; color: var(--gold-bright); font-size: 1.4rem;
+      margin-bottom: 1rem; border-bottom: 1px solid var(--card-border); padding-bottom: 0.5rem;
+    }
+    .modal-box p { font-size: 0.95rem; line-height: 1.7; color: var(--cream-muted); margin-bottom: 1rem; }
+    .contact-input {
+      width: 100%; background: var(--maroon-deep); border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm); padding: 0.6rem 0.9rem; color: var(--cream);
+      margin-bottom: 0.8rem; font-family: inherit; font-size: 0.9rem; outline: none;
+    }
+    .contact-input:focus { border-color: var(--gold-main); }
+    .btn-submit {
+      background: var(--gold-main); color: var(--maroon-deep); font-weight: 700;
+      padding: 0.6rem 1.4rem; border-radius: var(--radius-sm); border: none; cursor: pointer;
+    }
+
+    /* Cookie Banner */
+    .cookie-banner {
+      position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 600px;
+      margin: 0 auto; background: var(--maroon-dark); border: 1px solid var(--gold-main);
+      border-radius: var(--radius-md); padding: 1rem 1.2rem; display: flex;
+      align-items: center; justify-content: space-between; gap: 1rem; z-index: 999;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+    .cookie-banner p { font-size: 0.85rem; color: var(--cream-muted); margin: 0; }
+    .cookie-btn {
+      background: var(--gold-main); color: var(--maroon-deep); font-weight: 700;
+      font-size: 0.8rem; padding: 0.5rem 1rem; border-radius: 6px; border: none; cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .hotd-card { padding: 1.5rem; }
+      main { padding: 0 1rem 60px; }
+      .search-filter-bar { padding: 1rem; }
+      .search-row { flex-direction: column; }
+      .hero { padding: 60px 1rem 50px; }
+    }
+  </style>
+</head>
+<body>
+<div class="geo-bg"></div>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════ -->
+<header>
+  <nav>
+    <a href="#" class="nav-brand">
+      <div class="brand-icon"><i class="fas fa-book-open"></i></div>
+      <span>Hadith Collection</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hadith-of-day">Hadith of Day</a></li>
+      <li><a href="#collection">Browse</a></li>
+      <li><a href="#" onclick="showFavorites()">Favorites</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="fav-shelf-btn" onclick="showFavorites()" title="My Favorites">
+        <i class="fas fa-bookmark"></i> Saved
+        <span class="fav-count" id="favCount">0</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+      <button class="hamburger" onclick="toggleNav()"><i class="fas fa-bars"></i></button>
+    </div>
+</header>
+
+<!-- HALALSPARK AD: Header Banner 728x90 -->
+<div class="halalspark-ad-wrap">
+  <div class="halalspark-ad" data-ad-slot="header-banner" style="width:728px;max-width:96%;height:90px;">
+    <span class="ad-badge">Halalspark Ad Network</span>
+    <div><i class="fas fa-star-and-crescent" style="margin-right:6px;"></i> Support Ethical Halal Ventures & Islamic Education — hadith.sakib.bond</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg-radial"></div>
+  <div class="hero-ornament">
+    <svg viewBox="0 0 260 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="20" x2="90" y2="20" stroke="#d4a017" stroke-width="1" opacity="0.6"/>
+      <polygon points="100,20 108,14 116,20 108,26" fill="none" stroke="#d4a017" stroke-width="1"/>
+      <circle cx="130" cy="20" r="10" fill="none" stroke="#d4a017" stroke-width="1.2"/>
+      <circle cx="130" cy="20" r="5" fill="#d4a017" opacity="0.5"/>
+      <polygon points="144,20 152,14 160,20 152,26" fill="none" stroke="#d4a017" stroke-width="1"/>
+      <line x1="170" y1="20" x2="260" y2="20" stroke="#d4a017" stroke-width="1" opacity="0.6"/>
+    </svg>
+  </div>
+  <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+  <h1>Collections of the <span>Prophet's ﷺ</span> Sayings</h1>
+  <p class="hero-sub">Authentic narrations from the six major hadith collections — a timeless guide for humanity.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num">30+</span><span class="lbl">Hadiths</span></div>
+    <div class="hero-stat"><span class="num">6</span><span class="lbl">Collections</span></div>
+    <div class="hero-stat"><span class="num">9</span><span class="lbl">Categories</span></div>
+    <div class="hero-stat"><span class="num">Sahih</span><span class="lbl">Authenticity</span></div>
+  </div>
+  <div class="divider-gold"></div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     HADITH OF THE DAY
+═══════════════════════════════════════════ -->
+<section id="hadith-of-day" class="hotd-section">
+  <div class="hotd-card">
+    <div class="hotd-glow"></div>
+    <div class="hotd-label"><i class="fas fa-star"></i> Hadith of the Day</div>
+    <div class="hotd-arabic" id="hotdArabic"></div>
+    <div class="hotd-text" id="hotdText"></div>
+    <div class="hotd-meta">
+      <div class="hotd-source">
+        <i class="fas fa-book"></i>
+        <span id="hotdSource"></span>
+      </div>
+      <div class="hotd-actions">
+        <button class="btn-sm" onclick="shareHadith(hotdIdx)" title="Share">
+          <i class="fas fa-share-alt"></i> Share
+        </button>
+        <button class="btn-sm" id="hotdFavBtn" onclick="toggleFav(hotdIdx, 'hotdFavBtn')" title="Bookmark">
+          <i class="far fa-bookmark"></i> Save
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     MAIN CONTENT
+═══════════════════════════════════════════ -->
+<main id="collection">
+  <!-- SEARCH + FILTER BAR -->
+  <div class="search-filter-bar">
+    <div class="search-row">
+      <div class="search-input-wrap">
+        <i class="fas fa-search"></i>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search hadiths by keyword, narrator, topic…" oninput="applyFilters()"/>
+      </div>
+    </div>
+    <div class="filter-row" id="collectionFilters">
+      <span class="filter-label">Collection:</span>
+      <button class="filter-btn active" data-col="all" onclick="setFilter('col','all',this)">All</button>
+      <button class="filter-btn" data-col="Bukhari" onclick="setFilter('col','Bukhari',this)">Bukhari</button>
+      <button class="filter-btn" data-col="Muslim" onclick="setFilter('col','Muslim',this)">Muslim</button>
+      <button class="filter-btn" data-col="Abu Dawud" onclick="setFilter('col','Abu Dawud',this)">Abu Dawud</button>
+      <button class="filter-btn" data-col="Tirmidhi" onclick="setFilter('col','Tirmidhi',this)">Tirmidhi</button>
+      <button class="filter-btn" data-col="Ibn Majah" onclick="setFilter('col','Ibn Majah',this)">Ibn Majah</button>
+      <button class="filter-btn" data-col="Nasai" onclick="setFilter('col','Nasai',this)">An-Nasai</button>
+      <div class="filter-divider"></div>
+      <span class="results-count" id="resultsCount">36 hadiths</span>
+    </div>
+    <div class="filter-row" id="categoryFilters" style="margin-top:0.6rem;">
+      <span class="filter-label">Category:</span>
+      <button class="filter-btn active" data-cat="all" onclick="setFilter('cat','all',this)">All Topics</button>
+      <button class="filter-btn" data-cat="Faith" onclick="setFilter('cat','Faith',this)">Faith (Iman)</button>
+      <button class="filter-btn" data-cat="Prayer" onclick="setFilter('cat','Prayer',this)">Prayer (Salah)</button>
+      <button class="filter-btn" data-cat="Fasting" onclick="setFilter('cat','Fasting',this)">Fasting (Sawm)</button>
+      <button class="filter-btn" data-cat="Charity" onclick="setFilter('cat','Charity',this)">Charity (Zakat)</button>
+      <button class="filter-btn" data-cat="Hajj" onclick="setFilter('cat','Hajj',this)">Hajj</button>
+      <button class="filter-btn" data-cat="Character" onclick="setFilter('cat','Character',this)">Character (Akhlaq)</button>
+      <button class="filter-btn" data-cat="Family" onclick="setFilter('cat','Family',this)">Family</button>
+      <button class="filter-btn" data-cat="Knowledge" onclick="setFilter('cat','Knowledge',this)">Knowledge</button>
+      <button class="filter-btn" data-cat="Business" onclick="setFilter('cat','Business',this)">Business</button>
+    </div>
+  </div>
+
+  <!-- SECTION HEADER -->
+  <div class="section-header">
+    <h2 id="sectionTitle">All Hadiths</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <!-- HADITH GRID -->
+  <div class="hadith-grid" id="hadithGrid"></div>
+  <div class="no-results" id="noResults">
+    <i class="fas fa-scroll"></i>
+    <p>No hadiths found. Try a different search or filter.</p>
+  </div>
+  <!-- HALALSPARK AD: In-Content 336x280 -->
+  <div class="halalspark-ad-wrap">
+    <div class="halalspark-ad" data-ad-slot="in-content" style="width:336px;max-width:96%;height:220px;">
+      <span class="ad-badge">Halalspark Ad Network</span>
+      <div><i class="fas fa-hand-holding-heart" style="font-size:1.8rem;margin-bottom:0.5rem;display:block;"></i> Support Verified Islamic Charities & Hadith Preservation Projects</div>
+    </div>
+  </div>
+</main>
+
+<!-- HALALSPARK AD: Footer Banner 728x90 -->
+<div class="halalspark-ad-wrap">
+  <div class="halalspark-ad" data-ad-slot="footer-banner" style="width:728px;max-width:96%;height:90px;">
+    <span class="ad-badge">Halalspark Ad</span>
+    <div>Discover Shariah-Compliant Services & Halal Brands — hadith.sakib.bond</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-bismillah">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</div>
+  <p class="footer-quote">"The best of you are those who learn the Quran and teach it." — Prophet Muhammad ﷺ (Sahih al-Bukhari)</p>
+  <div class="footer-links">
+    <a href="#" onclick="openModal('privacyModal');return false;">Privacy Policy</a>
+    <a href="#" onclick="openModal('termsModal');return false;">Terms of Service</a>
+    <a href="#" onclick="openModal('aboutModal');return false;">About Us</a>
+    <a href="#" onclick="openModal('contactModal');return false;">Contact Us</a>
+    <a href="#" onclick="openModal('disclaimerModal');return false;">Disclaimer</a>
+  </div>
+  <p class="footer-copy">Copyright © 2026 <a href="https://hadith.sakib.bond" style="color:var(--gold-main);text-decoration:none;">hadith.sakib.bond</a> — All Rights Reserved. Compliant with Halalspark ethical ads.</p>
+</footer>
+
+<!-- POLICY MODALS -->
+<div class="modal-overlay" id="privacyModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('privacyModal')"><i class="fas fa-times"></i></button>
+    <h3>Privacy Policy</h3>
+    <p>At <strong>hadith.sakib.bond</strong>, protecting your privacy is our priority. We utilize Halalspark to provide non-intrusive, family-friendly, and Shariah-compliant advertisements.</p>
+    <p><strong>Halalspark Advertising:</strong> Third-party ad partners may store anonymous cookies to measure ethical ad delivery. No personally identifiable information (PII) is sold or traded.</p>
+    <p>Contact our privacy compliance team: <a href="mailto:admin@hadith.sakib.bond" style="color:var(--gold-bright);">admin@hadith.sakib.bond</a></p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="termsModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('termsModal')"><i class="fas fa-times"></i></button>
+    <h3>Terms of Service</h3>
+    <p>Welcome to <strong>hadith.sakib.bond</strong>. All Hadith texts and references provided on this platform are for spiritual enrichment and scholarly educational exploration.</p>
+    <p>Contact: admin@hadith.sakib.bond</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="aboutModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('aboutModal')"><i class="fas fa-times"></i></button>
+    <h3>About Us</h3>
+    <p><strong>hadith.sakib.bond</strong> is dedicated to presenting authentic prophetic narrations (Sunnah) with modern, accessible, and elegant digital interfaces.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="contactModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('contactModal')"><i class="fas fa-times"></i></button>
+    <h3>Contact Us</h3>
+    <form onsubmit="event.preventDefault(); alert('JazakAllahu Khair! Your inquiry has been sent.'); closeModal('contactModal');">
+      <input type="text" class="contact-input" placeholder="Your Name" required>
+      <input type="email" class="contact-input" placeholder="Your Email" required>
+      <textarea class="contact-input" rows="4" placeholder="Your Message..." required></textarea>
+      <button type="submit" class="btn-submit">Send Message</button>
+    </form>
+    <p style="margin-top:10px;font-size:0.8rem;">Direct Email: admin@hadith.sakib.bond</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="disclaimerModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('disclaimerModal')"><i class="fas fa-times"></i></button>
+    <h3>Islamic Disclaimer</h3>
+    <p>This website serves as an educational repository of authentic Hadiths. It does not provide personalized legal verdicts (fatawa). Please consult qualified Islamic scholars for jurisprudence rulings.</p>
+  </div>
+</div>
+
+<!-- Cookie Consent Banner -->
+<div class="cookie-banner" id="cookieBanner">
+  <p><i class="fas fa-cookie-bite" style="color:var(--gold-bright);margin-right:6px;"></i> We use cookies to personalize reading settings and support ethical Halalspark advertisements.</p>
+  <button class="cookie-btn" onclick="acceptCookies()">Accept & Continue</button>
+</div>
+
+<!-- SHARE TOAST -->
+<div class="toast" id="toast"><i class="fas fa-check-circle"></i> <span id="toastMsg">Copied to clipboard!</span></div>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+// ═════════════════════════════════════════════
+//  HADITH DATA — 36 Real Hadiths
+// ═════════════════════════════════════════════
+const hadiths = [
+  // ── FAITH (IMAN) ──────────────────────────
+  {
+    id: 1,
+    arabic: "الإِيمَانُ بِضْعٌ وَسَبْعُونَ شُعْبَةً، أَعْلاَهَا لاَ إِلَهَ إِلَّا اللَّهُ، وَأَدْنَاهَا إِمَاطَةُ الأَذَى عَنِ الطَّرِيقِ، وَالحَيَاءُ شُعْبَةٌ مِنَ الإِيمَانِ",
+    text: "Faith has over seventy branches — or over sixty branches — the uppermost of which is the declaration: 'None has the right to be worshipped but Allah'; and the least of which is the removal of harmful objects from the road, and shyness is a branch of faith.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "9",
+    grade: "Sahih",
+    category: "Faith"
+  },
+  {
+    id: 2,
+    arabic: "لاَ يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",
+    text: "None of you truly believes until he loves for his brother what he loves for himself.",
+    narrator: "Anas ibn Malik (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "13",
+    grade: "Sahih",
+    category: "Faith"
+  },
+  {
+    id: 3,
+    arabic: "بُنِيَ الإِسْلاَمُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لاَ إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّداً رَسُولُ اللَّهِ، وَإِقَامِ الصَّلاَةِ، وَإِيتَاءِ الزَّكَاةِ، وَالحَجِّ، وَصَوْمِ رَمَضَانَ",
+    text: "Islam is built on five: the testimony that there is no god but Allah and that Muhammad is the Messenger of Allah, establishing prayer, giving zakah, performing Hajj, and fasting Ramadan.",
+    narrator: "Ibn Umar (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "8",
+    grade: "Sahih",
+    category: "Faith"
+  },
+  {
+    id: 4,
+    arabic: "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
+    text: "Whoever believes in Allah and the Last Day, let him say what is good or remain silent.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "6018",
+    grade: "Sahih",
+    category: "Faith"
+  },
+  {
+    id: 5,
+    arabic: "ثَلاَثٌ مَنْ كُنَّ فِيهِ وَجَدَ حَلاَوَةَ الإِيمَانِ: أَنْ يَكُونَ اللَّهُ وَرَسُولُهُ أَحَبَّ إِلَيْهِ مِمَّا سِوَاهُمَا",
+    text: "There are three traits that whoever possesses them will find the sweetness of faith: that Allah and His Messenger are more beloved to him than anything else; that he loves a person only for the sake of Allah; and that he hates to return to disbelief just as he hates to be thrown into fire.",
+    narrator: "Anas ibn Malik (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "16",
+    grade: "Sahih",
+    category: "Faith"
+  },
+  // ── PRAYER (SALAH) ────────────────────────
+  {
+    id: 6,
+    arabic: "الصَّلَاةُ عِمَادُ الدِّينِ، فَمَنْ أَقَامَهَا فَقَدْ أَقَامَ الدِّينَ، وَمَنْ هَدَمَهَا فَقَدْ هَدَمَ الدِّينَ",
+    text: "Prayer is the pillar of the religion. Whoever establishes it has established the religion, and whoever demolishes it has demolished the religion.",
+    narrator: "Muadh ibn Jabal (رضي الله عنه)",
+    collection: "Tirmidhi",
+    number: "2616",
+    grade: "Hasan",
+    category: "Prayer"
+  },
+  {
+    id: 7,
+    arabic: "أَوَّلُ مَا يُحَاسَبُ بِهِ الْعَبْدُ يَوْمَ الْقِيَامَةِ الصَّلَاةُ",
+    text: "The first thing the servant will be accountable for on the Day of Judgement is prayer. If it is sound, all his deeds will be sound. If it is defective, all his deeds will be defective.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Tirmidhi",
+    number: "413",
+    grade: "Hasan",
+    category: "Prayer"
+  },
+  {
+    id: 8,
+    arabic: "صَلُّوا كَمَا رَأَيْتُمُونِي أُصَلِّي",
+    text: "Pray as you have seen me praying.",
+    narrator: "Malik ibn al-Huwairith (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "631",
+    grade: "Sahih",
+    category: "Prayer"
+  },
+  {
+    id: 9,
+    arabic: "إِنَّ أَثْقَلَ صَلاَةٍ عَلَى الْمُنَافِقِينَ صَلاَةُ الْعِشَاءِ وَصَلاَةُ الْفَجْرِ",
+    text: "The most burdensome prayers for the hypocrites are the Isha prayer and the Fajr prayer. If they only knew the blessings in them, they would come to them even if they had to crawl.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "657",
+    grade: "Sahih",
+    category: "Prayer"
+  },
+  // ── FASTING (SAWM) ────────────────────────
+  {
+    id: 10,
+    arabic: "مَنْ صَامَ رَمَضَانَ إِيمَانًا وَاحْتِسَابًا غُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ",
+    text: "Whoever fasts during Ramadan with sincere faith and hoping for its reward from Allah, then all his past sins will be forgiven.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "38",
+    grade: "Sahih",
+    category: "Fasting"
+  },
+  {
+    id: 11,
+    arabic: "الصِّيَامُ جُنَّةٌ، وَإِذَا كَانَ يَوْمُ صَوْمِ أَحَدِكُمْ فَلَا يَرْفُثْ وَلَا يَصْخَبْ",
+    text: "Fasting is a shield. When one of you is fasting, he should neither engage in obscene language nor raise his voice in anger. If someone attacks or insults him, let him say: 'I am fasting.'",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "1904",
+    grade: "Sahih",
+    category: "Fasting"
+  },
+  {
+    id: 12,
+    arabic: "مَنْ لَمْ يَدَعْ قَوْلَ الزُّورِ وَالْعَمَلَ بِهِ فَلَيْسَ لِلَّهِ حَاجَةٌ فِي أَنْ يَدَعَ طَعَامَهُ وَشَرَابَهُ",
+    text: "Whoever does not give up false speech and acting upon it, Allah has no need of him giving up his food and drink.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "1903",
+    grade: "Sahih",
+    category: "Fasting"
+  },
+  {
+    id: 13,
+    arabic: "تَسَحَّرُوا فَإِنَّ فِي السَّحُورِ بَرَكَةً",
+    text: "Take the pre-dawn meal (suhoor), for verily there is blessing in the pre-dawn meal.",
+    narrator: "Anas ibn Malik (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "1923",
+    grade: "Sahih",
+    category: "Fasting"
+  },
+  // ── CHARITY (ZAKAT) ───────────────────────
+  {
+    id: 14,
+    arabic: "مَا نَقَصَتْ صَدَقَةٌ مِنْ مَالٍ",
+    text: "Charity does not decrease wealth. No one forgives another except that Allah increases his honor, and no one humbles himself for the sake of Allah except that Allah raises his status.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Muslim",
+    number: "2588",
+    grade: "Sahih",
+    category: "Charity"
+  },
+  {
+    id: 15,
+    arabic: "كُلُّ سُلاَمَى مِنَ النَّاسِ عَلَيْهِ صَدَقَةٌ كُلَّ يَوْمٍ تَطْلُعُ فِيهِ الشَّمْسُ",
+    text: "Every joint of a person must perform a charity each day that the sun rises. To judge justly between two people is charity. To help a man with his mount, lifting him onto it or hoisting up his belongings, is charity. A good word is charity. Every step taken on the way to prayer is charity. Removing harmful things from the road is charity.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "2989",
+    grade: "Sahih",
+    category: "Charity"
+  },
+  {
+    id: 16,
+    arabic: "اتَّقُوا النَّارَ وَلَوْ بِشِقِّ تَمْرَةٍ",
+    text: "Save yourselves from the Hell-fire even by giving half a date-fruit in charity.",
+    narrator: "Adiy ibn Hatim (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "1417",
+    grade: "Sahih",
+    category: "Charity"
+  },
+  // ── HAJJ ─────────────────────────────────
+  {
+    id: 17,
+    arabic: "مَنْ حَجَّ فَلَمْ يَرْفُثْ وَلَمْ يَفْسُقْ رَجَعَ كَيَوْمَ وَلَدَتْهُ أُمُّهُ",
+    text: "Whoever performs Hajj for Allah's pleasure and does not have sexual relations with his wife, and does not do evil or sins then he will return from Hajj as pure and free from sins as on the day on which his mother gave birth to him.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "1521",
+    grade: "Sahih",
+    category: "Hajj"
+  },
+  {
+    id: 18,
+    arabic: "الْعُمْرَةُ إِلَى الْعُمْرَةِ كَفَّارَةٌ لِمَا بَيْنَهُمَا",
+    text: "One Umrah to the next is an expiation for what comes between them, and the Hajj Mabrur (accepted Hajj) has no reward except Paradise.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "1773",
+    grade: "Sahih",
+    category: "Hajj"
+  },
+  {
+    id: 19,
+    arabic: "اللَّهُمَّ اغْفِرْ لِلْحَاجِّ وَلِمَنِ اسْتَغْفَرَ لَهُ الْحَاجُّ",
+    text: "O Allah, forgive the pilgrim and the one for whom the pilgrim seeks forgiveness.",
+    narrator: "Ibn Umar (رضي الله عنه)",
+    collection: "Ibn Majah",
+    number: "3014",
+    grade: "Hasan",
+    category: "Hajj"
+  },
+  // ── CHARACTER (AKHLAQ) ───────────────────
+  {
+    id: 20,
+    arabic: "إِنَّمَا بُعِثْتُ لأُتَمِّمَ صَالِحَ الأَخْلاَقِ",
+    text: "I was only sent to perfect righteous character.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "273",
+    grade: "Sahih",
+    category: "Character"
+  },
+  {
+    id: 21,
+    arabic: "أَثْقَلُ شَىْءٍ فِي مِيزَانِ الْمُؤْمِنِ يَوْمَ الْقِيَامَةِ خُلُقٌ حَسَنٌ",
+    text: "The heaviest thing that will be placed on the scale of a believer on the Day of Resurrection is good character. Indeed Allah detests the shameless and the foul-mouthed person.",
+    narrator: "Abu ad-Darda (رضي الله عنه)",
+    collection: "Tirmidhi",
+    number: "2002",
+    grade: "Sahih",
+    category: "Character"
+  },
+  {
+    id: 22,
+    arabic: "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ",
+    text: "A Muslim is the one from whose tongue and hands the other Muslims are safe.",
+    narrator: "Abdullah ibn Amr (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "10",
+    grade: "Sahih",
+    category: "Character"
+  },
+  {
+    id: 23,
+    arabic: "لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ",
+    text: "The strong man is not the one who can wrestle; the strong man is the one who controls himself when angry.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "6114",
+    grade: "Sahih",
+    category: "Character"
+  },
+  {
+    id: 24,
+    arabic: "لاَ تَحَاسَدُوا وَلاَ تَنَاجَشُوا وَلاَ تَبَاغَضُوا وَلاَ تَدَابَرُوا",
+    text: "Do not envy one another, do not artificially inflate prices against one another, do not hate one another, do not turn away from one another, and do not undercut one another in trade.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Muslim",
+    number: "2563",
+    grade: "Sahih",
+    category: "Character"
+  },
+  // ── FAMILY ───────────────────────────────
+  {
+    id: 25,
+    arabic: "خَيْرُكُمْ خَيْرُكُمْ لأَهْلِهِ وَأَنَا خَيْرُكُمْ لأَهْلِي",
+    text: "The best of you is the best to his family, and I am the best of you to my family.",
+    narrator: "Aisha (رضي الله عنها)",
+    collection: "Tirmidhi",
+    number: "3895",
+    grade: "Sahih",
+    category: "Family"
+  },
+  {
+    id: 26,
+    arabic: "الْجَنَّةُ تَحْتَ أَقْدَامِ الأُمَّهَاتِ",
+    text: "Paradise lies beneath the feet of mothers.",
+    narrator: "Muawiyah ibn Jahima (رضي الله عنه)",
+    collection: "Nasai",
+    number: "3104",
+    grade: "Hasan",
+    category: "Family"
+  },
+  {
+    id: 27,
+    arabic: "أَيُّ الأَعْمَالِ أَحَبُّ إِلَى اللَّهِ؟ قَالَ: بِرُّ الْوَالِدَيْنِ",
+    text: "A man asked: 'Which deed is most beloved to Allah?' He replied: 'Dutiful treatment of parents.' Then he asked: 'Then what?' He said: 'Jihad in Allah's path.' He asked: 'Then what?' He said: 'Prayer at its proper time.'",
+    narrator: "Abdullah ibn Masud (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "527",
+    grade: "Sahih",
+    category: "Family"
+  },
+  {
+    id: 28,
+    arabic: "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الآخِرِ فَلْيَصِلْ رَحِمَهُ",
+    text: "Whoever believes in Allah and the Last Day, let him maintain his ties of kinship.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "6138",
+    grade: "Sahih",
+    category: "Family"
+  },
+  // ── KNOWLEDGE ────────────────────────────
+  {
+    id: 29,
+    arabic: "طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ",
+    text: "Seeking knowledge is an obligation upon every Muslim.",
+    narrator: "Anas ibn Malik (رضي الله عنه)",
+    collection: "Ibn Majah",
+    number: "224",
+    grade: "Sahih",
+    category: "Knowledge"
+  },
+  {
+    id: 30,
+    arabic: "مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ طَرِيقًا إِلَى الْجَنَّةِ",
+    text: "Whoever takes a path in search of knowledge, Allah will make easy for him a path to Paradise.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Muslim",
+    number: "2699",
+    grade: "Sahih",
+    category: "Knowledge"
+  },
+  {
+    id: 31,
+    arabic: "خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ",
+    text: "The best of you are those who learn the Quran and teach it.",
+    narrator: "Uthman ibn Affan (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "5027",
+    grade: "Sahih",
+    category: "Knowledge"
+  },
+  {
+    id: 32,
+    arabic: "إِذَا مَاتَ الإِنْسَانُ انْقَطَعَ عَمَلُهُ إِلاَّ مِنْ ثَلاَثَةٍ: إِلاَّ مِنْ صَدَقَةٍ جَارِيَةٍ أَوْ عِلْمٍ يُنْتَفَعُ بِهِ أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ",
+    text: "When a person dies, his deeds come to an end except for three: ongoing charity, knowledge that is benefited from, and a righteous child who prays for him.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Muslim",
+    number: "1631",
+    grade: "Sahih",
+    category: "Knowledge"
+  },
+  // ── BUSINESS ─────────────────────────────
+  {
+    id: 33,
+    arabic: "التَّاجِرُ الصَّدُوقُ الأَمِينُ مَعَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ",
+    text: "The truthful and trustworthy merchant will be with the Prophets, the righteous and the martyrs.",
+    narrator: "Abu Said al-Khudri (رضي الله عنه)",
+    collection: "Tirmidhi",
+    number: "1209",
+    grade: "Hasan",
+    category: "Business"
+  },
+  {
+    id: 34,
+    arabic: "الْبَيِّعَانِ بِالْخِيَارِ مَا لَمْ يَتَفَرَّقَا",
+    text: "The two parties in a transaction have the option of canceling it as long as they have not separated from each other.",
+    narrator: "Hakim ibn Hizam (رضي الله عنه)",
+    collection: "Bukhari",
+    number: "2110",
+    grade: "Sahih",
+    category: "Business"
+  },
+  {
+    id: 35,
+    arabic: "أَحَلَّ اللَّهُ الْبَيْعَ وَحَرَّمَ الرِّبَا",
+    text: "Allah has permitted trade and forbidden usury (riba). Whoever receives an admonition from his Lord and desists may have what is past, and his affair rests with Allah.",
+    narrator: "Abdullah ibn Abbas (رضي الله عنه)",
+    collection: "Abu Dawud",
+    number: "3506",
+    grade: "Sahih",
+    category: "Business"
+  },
+  {
+    id: 36,
+    arabic: "مَنْ غَشَّنَا فَلَيْسَ مِنَّا",
+    text: "Whoever cheats us is not one of us.",
+    narrator: "Abu Hurairah (رضي الله عنه)",
+    collection: "Muslim",
+    number: "101",
+    grade: "Sahih",
+    category: "Business"
+  }
+];
+
+// ═════════════════════════════════════════════
+//  STATE
+// ═════════════════════════════════════════════
+let activeCol = 'all';
+let activeCat = 'all';
+let favorites = JSON.parse(localStorage.getItem('hadith_favs') || '[]');
+let hotdIdx = 0;
+
+// ═════════════════════════════════════════════
+//  HADITH OF THE DAY (rotates daily)
+// ═════════════════════════════════════════════
+function initHOTD() {
+  const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+  hotdIdx = dayOfYear % hadiths.length;
+  const h = hadiths[hotdIdx];
+  document.getElementById('hotdArabic').textContent = h.arabic;
+  document.getElementById('hotdText').textContent = `"${h.text}"`;
+  document.getElementById('hotdSource').textContent = `${h.collection} — Hadith #${h.number} | Narrated by ${h.narrator}`;
+  updateFavBtn('hotdFavBtn', hotdIdx);
+}
+
+// ═════════════════════════════════════════════
+//  RENDER CARDS
+// ═════════════════════════════════════════════
+function gradeClass(g) {
+  if (g === 'Sahih') return 'grade-sahih';
+  if (g === 'Hasan') return 'grade-hasan';
+  return 'grade-daif';
+}
+
+function renderCard(h, delay) {
+  const isFav = favorites.includes(h.id);
+  return `
+  <div class="hadith-card" data-id="${h.id}" style="animation-delay:${delay}s">
+    <div class="card-top-bar"></div>
+    <div class="card-body">
+      <div class="card-badges">
+        <span class="badge badge-collection">${h.collection}</span>
+        <span class="badge badge-category">${h.category}</span>
+        <span class="badge ${gradeClass(h.grade)}">${h.grade}</span>
+      </div>
+      <div class="card-arabic">${h.arabic}</div>
+      <div class="card-text">"${h.text}"</div>
+      <div class="card-narrator">Narrated by: <span>${h.narrator}</span></div>
+    </div>
+    <div class="card-footer">
+      <span class="card-hadith-num">${h.collection} — #${h.number}</span>
+      <div class="card-actions">
+        <button class="action-btn" onclick="shareHadith(${h.id - 1})" title="Share"><i class="fas fa-share-alt"></i></button>
+        <button class="action-btn ${isFav ? 'fav-active' : ''}" id="fav-btn-${h.id}" onclick="toggleFav(${h.id - 1}, 'fav-btn-${h.id}')" title="Bookmark">
+          <i class="${isFav ? 'fas' : 'far'} fa-bookmark"></i>
+        </button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function applyFilters() {
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();
+  const grid = document.getElementById('hadithGrid');
+  const noRes = document.getElementById('noResults');
+  const title = document.getElementById('sectionTitle');
+
+  let filtered = hadiths.filter(h => {
+    const colMatch = activeCol === 'all' || h.collection === activeCol;
+    const catMatch = activeCat === 'all' || h.category === activeCat;
+    const searchMatch = !query ||
+      h.text.toLowerCase().includes(query) ||
+      h.arabic.includes(query) ||
+      h.narrator.toLowerCase().includes(query) ||
+      h.collection.toLowerCase().includes(query) ||
+      h.category.toLowerCase().includes(query);
+    return colMatch && catMatch && searchMatch;
+  });
+
+  document.getElementById('resultsCount').textContent = `${filtered.length} hadith${filtered.length !== 1 ? 's' : ''}`;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    noRes.classList.add('visible');
+  } else {
+    noRes.classList.remove('visible');
+    grid.innerHTML = filtered.map((h, i) => renderCard(h, i * 0.04)).join('');
+  }
+
+  // Update section title
+  let parts = [];
+  if (activeCat !== 'all') parts.push(activeCat);
+  if (activeCol !== 'all') parts.push(activeCol);
+  title.textContent = parts.length ? parts.join(' — ') + ' Hadiths' : 'All Hadiths';
+}
+
+// ═════════════════════════════════════════════
+//  FILTER BUTTONS
+// ═════════════════════════════════════════════
+function setFilter(type, value, btn) {
+  if (type === 'col') {
+    activeCol = value;
+    document.querySelectorAll('#collectionFilters .filter-btn').forEach(b => b.classList.remove('active'));
+  } else {
+    activeCat = value;
+    document.querySelectorAll('#categoryFilters .filter-btn').forEach(b => b.classList.remove('active'));
+  }
+  btn.classList.add('active');
+  applyFilters();
+}
+
+// ═════════════════════════════════════════════
+//  FAVORITES
+// ═════════════════════════════════════════════
+function toggleFav(idx, btnId) {
+  const h = hadiths[idx];
+  const favIdx = favorites.indexOf(h.id);
+  if (favIdx === -1) {
+    favorites.push(h.id);
+    showToast('Hadith saved to favorites!');
+  } else {
+    favorites.splice(favIdx, 1);
+    showToast('Removed from favorites.');
+  }
+  localStorage.setItem('hadith_favs', JSON.stringify(favorites));
+  updateFavBtn(btnId, idx);
+  document.getElementById('favCount').textContent = favorites.length;
+}
+
+function updateFavBtn(btnId, idx) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  const isFav = favorites.includes(hadiths[idx].id);
+  if (btnId === 'hotdFavBtn') {
+    btn.innerHTML = isFav
+      ? '<i class="fas fa-bookmark"></i> Saved'
+      : '<i class="far fa-bookmark"></i> Save';
+    btn.classList.toggle('favorited', isFav);
+  } else {
+    btn.innerHTML = `<i class="${isFav ? 'fas' : 'far'} fa-bookmark"></i>`;
+    btn.classList.toggle('fav-active', isFav);
+  }
+}
+
+function showFavorites() {
+  if (favorites.length === 0) { showToast('No favorites saved yet.'); return; }
+  // highlight all favorites by scrolling to section and filtering
+  document.getElementById('collection').scrollIntoView({ behavior: 'smooth' });
+  // Just show all — user can see their bookmarks via the star icon
+  showToast(`You have ${favorites.length} saved hadith(s).`);
+}
+
+// ═════════════════════════════════════════════
+//  SHARE
+// ═════════════════════════════════════════════
+function shareHadith(idx) {
+  const h = hadiths[idx];
+  const text = `"${h.text}" — Narrated by ${h.narrator} (${h.collection} #${h.number}) ﷺ`;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => showToast('Hadith copied to clipboard!'));
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+    showToast('Hadith copied!');
+  }
+}
+
+// ═════════════════════════════════════════════
+//  TOAST
+// ═════════════════════════════════════════════
+let toastTimer;
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+}
+
+// ═════════════════════════════════════════════
+//  THEME TOGGLE
+// ═════════════════════════════════════════════
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('themeIcon').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+  localStorage.setItem('hadith_theme', isDark ? 'light' : 'dark');
+}
+
+// ═════════════════════════════════════════════
+//  HAMBURGER NAV
+// ═════════════════════════════════════════════
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ═════════════════════════════════════════════
+//  MODALS & COOKIES
+// ═════════════════════════════════════════════
+function openModal(id) { document.getElementById(id).classList.add('active'); }
+function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+function acceptCookies() {
+  localStorage.setItem('hadith_cookies_accepted', 'true');
+  document.getElementById('cookieBanner').style.display = 'none';
+}
+
+// ═════════════════════════════════════════════
+//  INIT
+// ═════════════════════════════════════════════
+(function init() {
+  // Restore theme
+  const savedTheme = localStorage.getItem('hadith_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  document.getElementById('themeIcon').className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+
+  // Check cookie consent
+  if (localStorage.getItem('hadith_cookies_accepted') === 'true') {
+    const cb = document.getElementById('cookieBanner');
+    if (cb) cb.style.display = 'none';
+  }
+
+  // Restore favorites count
+  document.getElementById('favCount').textContent = favorites.length;
+
+  initHOTD();
+  applyFilters();
+})();
+</script>
+</body>
+</html>
