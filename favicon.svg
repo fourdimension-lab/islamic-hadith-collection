@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#450a0a"/>
+      <stop offset="100%" stop-color="#1c0404"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="parchment" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <circle cx="32" cy="32" r="28" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.4"/>
+  <!-- Scroll Parchment -->
+  <path d="M 16 18 C 14 18 12 20 12 23 C 12 26 14 27 16 27 L 46 27 C 49 27 51 25 51 22 L 51 44 C 51 47 49 49 46 49 L 16 49 C 13 49 11 47 11 44 L 11 22" fill="url(#parchment)" stroke="url(#gold)" stroke-width="1.8"/>
+  <path d="M 16 18 L 46 18 C 49 18 51 20 51 23" fill="none" stroke="url(#gold)" stroke-width="1.8"/>
+  <!-- Text lines on scroll -->
+  <line x1="18" y1="32" x2="36" y2="32" stroke="#78350f" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="18" y1="37" x2="42" y2="37" stroke="#78350f" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="18" y1="42" x2="32" y2="42" stroke="#78350f" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Quill Feather -->
+  <path d="M 48 12 C 45 16 40 22 36 29 L 34 37 L 40 33 C 45 27 49 20 52 14 C 53 12 51 10 48 12 Z" fill="url(#gold)"/>
+  <line x1="48" y1="12" x2="34" y2="37" stroke="#92400e" stroke-width="1"/>
+</svg>
