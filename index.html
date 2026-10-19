@@ -728,6 +728,39 @@
       .search-row { flex-direction: column; }
       .hero { padding: 60px 1rem 50px; }
     }
+  
+    /* ─── TRILINGUAL & GRADING STYLES ─── */
+    .card-bn-text {
+      font-family: 'Noto Serif Bengali', serif;
+      font-size: 0.95rem; line-height: 1.7;
+      color: var(--text-main); margin-top: 10px;
+      padding-top: 10px; border-top: 1px dashed var(--border-color);
+      direction: ltr; text-align: left;
+    }
+    .card-bn-text .lbl {
+      color: #2e7d32; font-weight: 700; font-size: 0.75rem;
+      text-transform: uppercase; margin-right: 6px;
+    }
+    [data-theme="dark"] .card-bn-text .lbl { color: #81c784; }
+
+    .translation-toggles {
+      display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;
+    }
+    .lang-toggle-btn {
+      background: var(--bg-surface); border: 1px solid var(--border-color);
+      color: var(--text-sub); padding: 5px 12px; border-radius: 16px;
+      font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+    }
+    .lang-toggle-btn.active {
+      background: var(--gold); color: #000; border-color: var(--gold);
+    }
+    .grade-badge-sahih {
+      background: rgba(46,125,50,0.18); color: #4caf50; border: 1px solid rgba(76,175,80,0.4);
+    }
+    .grade-badge-hasan {
+      background: rgba(201,168,76,0.18); color: var(--gold); border: 1px solid rgba(201,168,76,0.4);
+    }
+
   </style>
 </head>
 <body>
@@ -844,6 +877,24 @@
       <div class="filter-divider"></div>
       <span class="results-count" id="resultsCount">36 hadiths</span>
     </div>
+
+    <!-- Language & Grading Filter Row -->
+    <div class="filter-row" style="margin-top:0.6rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <span class="filter-label">Display Languages:</span>
+        <button class="lang-toggle-btn active" id="btnToggleAr" onclick="toggleLang('ar', this)">عربي (Arabic)</button>
+        <button class="lang-toggle-btn active" id="btnToggleBn" onclick="toggleLang('bn', this)">বাংলা (Bengali)</button>
+        <button class="lang-toggle-btn active" id="btnToggleEn" onclick="toggleLang('en', this)">English</button>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <span class="filter-label">Authenticity:</span>
+        <button class="filter-btn active" data-grade="all" onclick="setFilter('grade','all',this)">All Grades</button>
+        <button class="filter-btn" data-grade="Sahih" onclick="setFilter('grade','Sahih',this)">Sahih (صحيح)</button>
+        <button class="filter-btn" data-grade="Hasan" onclick="setFilter('grade','Hasan',this)">Hasan (حسن)</button>
+      </div>
+    </div>
+
     <div class="filter-row" id="categoryFilters" style="margin-top:0.6rem;">
       <span class="filter-label">Category:</span>
       <button class="filter-btn active" data-cat="all" onclick="setFilter('cat','all',this)">All Topics</button>
@@ -1372,8 +1423,23 @@ function gradeClass(g) {
   return 'grade-daif';
 }
 
+
+let showArabic = true;
+let showBengali = true;
+let showEnglish = true;
+let activeGrade = 'all';
+
+function toggleLang(lang, btn) {
+  if (lang === 'ar') showArabic = !showArabic;
+  if (lang === 'bn') showBengali = !showBengali;
+  if (lang === 'en') showEnglish = !showEnglish;
+  btn.classList.toggle('active');
+  applyFilters();
+}
+
 function renderCard(h, delay) {
   const isFav = favorites.includes(h.id);
+  const bn = h.bnText || getBengaliFallback(h.id);
   return `
   <div class="hadith-card" data-id="${h.id}" style="animation-delay:${delay}s">
     <div class="card-top-bar"></div>
@@ -1381,15 +1447,19 @@ function renderCard(h, delay) {
       <div class="card-badges">
         <span class="badge badge-collection">${h.collection}</span>
         <span class="badge badge-category">${h.category}</span>
-        <span class="badge ${gradeClass(h.grade)}">${h.grade}</span>
+        <span class="badge ${h.grade === 'Sahih' ? 'grade-badge-sahih' : 'grade-badge-hasan'}">${h.grade}</span>
       </div>
-      <div class="card-arabic">${h.arabic}</div>
-      <div class="card-text">"${h.text}"</div>
+      <div class="card-arabic" style="display:${showArabic?'block':'none'}">${h.arabic}</div>
+      <div class="card-text" style="display:${showEnglish?'block':'none'}">"${h.text}"</div>
+      <div class="card-bn-text" style="display:${showBengali?'block':'none'}">
+        <span class="lbl">[বাংলা]:</span> "${bn}"
+      </div>
       <div class="card-narrator">Narrated by: <span>${h.narrator}</span></div>
     </div>
     <div class="card-footer">
       <span class="card-hadith-num">${h.collection} — #${h.number}</span>
       <div class="card-actions">
+        <button class="action-btn" onclick="copyHadithText(${h.id})" title="Copy Hadith with Reference"><i class="fas fa-copy"></i></button>
         <button class="action-btn" onclick="shareHadith(${h.id - 1})" title="Share"><i class="fas fa-share-alt"></i></button>
         <button class="action-btn ${isFav ? 'fav-active' : ''}" id="fav-btn-${h.id}" onclick="toggleFav(${h.id - 1}, 'fav-btn-${h.id}')" title="Bookmark">
           <i class="${isFav ? 'fas' : 'far'} fa-bookmark"></i>
@@ -1399,6 +1469,69 @@ function renderCard(h, delay) {
   </div>`;
 }
 
+function copyHadithText(id) {
+  const h = hadiths.find(x => x.id === id);
+  if (!h) return;
+  const bn = h.bnText || getBengaliFallback(h.id);
+  const text = `"${h.arabic}"
+
+[English]: "${h.text}"
+[বাংলা অনুবাদ]: "${bn}"
+
+— ${h.collection} (Hadith #${h.number})
+Narrated by: ${h.narrator}
+Grading: ${h.grade}
+
+Read authentic hadiths online: https://hadith.sakib.bond`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Hadith copied to clipboard with full reference!');
+  });
+}
+
+function getBengaliFallback(id) {
+  const bnMap = {
+    1: "সকল কাজের ফলাফল নিয়তের উপর নির্ভরশীল এবং প্রত্যেক ব্যক্তি তার নিয়ত অনুসারেই প্রতিফল পাবে।",
+    2: "তোমাদের মধ্যে কেউ প্রকৃত ঈমানদার হতে পারবে না, যতক্ষণ না সে তার ভাইয়ের জন্য তাই পছন্দ করে যা নিজের জন্য পছন্দ করে।",
+    3: "ইসলাম পাঁচটি স্তম্ভের উপর প্রতিষ্ঠিত: সাক্ষ্য দেওয়া যে আল্লাহ ছাড়া কোনো ইলাহ নেই এবং মুহাম্মদ আল্লাহর রাসুল, সালাত কায়েম করা, যাকাত দেওয়া, হজ পালন করা এবং রমজানের রোজা রাখা।",
+    4: "যে ব্যক্তি আল্লাহ ও পরকালের প্রতি ঈমান রাখে, সে যেন ভালো কথা বলে অথবা চুপ থাকে।",
+    5: "তিনটি গুণ যার মধ্যে থাকবে সে ঈমানের মিষ্টতা অনুভব করবে: আল্লাহ ও তাঁর রাসুল তার নিকট অন্য সবকিছুর চেয়ে প্রিয় হওয়া...",
+    6: "সালাত হলো দ্বীনের স্তম্ভ; যে ব্যক্তি সালাত কায়েম করল সে দ্বীনকে কায়েম রাখল, আর যে সালাত ধ্বংস করল সে দ্বীনকে ধ্বংস করল।",
+    7: "কিয়ামতের দিন বান্দার কাজের মধ্যে সর্বপ্রথম সালাতের হিসাব নেওয়া হবে। সালাত সঠিক হলে তার সকল কাজই সঠিক হবে।",
+    8: "পাঁচ ওয়াক্ত সালাত এবং এক জুমা থেকে পরবর্তী জুমা তাদের মধ্যবর্তী পাপসমূহের কাফফারা স্বরূপ, যদি কবিরা গুনাহ থেকে বিরত থাকা হয়।",
+    9: "জামাতে সালাত আদায় একাকী সালাত আদায় অপেক্ষা সাতাশ গুণ বেশি মর্যাদাপূর্ণ।",
+    10: "যে ব্যক্তি মুনাফিকের মতো সালাত আদায় করে—অপেক্ষা করতে করতে যখন সূর্য হলুদ হয়ে যায় এবং শয়তানের দুই শিংয়ের মাঝে চলে যায়, তখন দ্রুত চারটি ঠোকর মারে...",
+    11: "যে ব্যক্তি রমজান মাসে ঈমান ও সওয়াবের আশায় রোজা রাখবে, তার পূর্ববর্তী সকল গুনাহ ক্ষমা করে দেওয়া হবে।",
+    12: "রোজাদারের জন্য দুটি বিশেষ আনন্দঘন মুহূর্ত রয়েছে: একটি তার ইফতারের সময় এবং অপরটি তার রবের সাথে সাক্ষাতের সময়।",
+    13: "রোজা হলো ঢালস্বরূপ; সুতরাং যখন তোমাদের কারও রোজার দিন আসে, সে যেন অশ্লীল কথা না বলে এবং জাহেলিয়াতের আচরণ না করে।",
+    14: "যে ব্যক্তি মিথ্যা কথা ও মিথ্যার ওপর আমল করা ত্যাগ করল না, তার পানাহার ত্যাগ করায় আল্লাহর কোনো প্রয়োজন নেই।",
+    15: "তোমরা সেহরি খাও, কারণ নিশ্চয়ই সেহরিতে বরকত রয়েছে।",
+    16: "দান সম্পদ হ্রাস করে না; কোনো বান্দা ক্ষমা প্রদর্শন করলে আল্লাহ তার সম্মানই বৃদ্ধি করেন।",
+    17: "প্রত্যেক ভালো কাজই একটি সদকাহ। ভাইয়ের মুখের দিকে তাকিয়ে মুচকি হাসাও সদকাহ।",
+    18: "উত্তম হাত হলো দাতা হাত, আর নিম্ন হাত হলো গ্রহীতা হাত। অতএব দান করা শুরু করো নিজের পরিবার থেকে।",
+    19: "যে ব্যক্তি মানুষের শোকরগুজারি বা কৃতজ্ঞতা প্রকাশ করে না, সে আল্লাহর প্রতিও কৃতজ্ঞ হতে পারে না।",
+    20: "যে ব্যক্তি পবিত্র কাবা ঘরে হজ করল এবং কোনো অশ্লীল কথা বা পাপকর্মে লিপ্ত হলো না, সে নিষ্পাপ নবজাতকের মতো নিষ্পাপ হয়ে ফিরে আসে।",
+    21: "মাবরুর বা কবুল হজের একমাত্র প্রতিদান হলো জান্নাত।",
+    22: "নিশ্চয়ই তোমাদের মধ্যে সেই ব্যক্তি আমার সবচেয়ে প্রিয় এবং কিয়ামতের দিন আমার সবচেয়ে নিকটবর্তী হবে, যার চরিত্র সর্বোত্তম।",
+    23: "মুমিনদের মধ্যে সেই ব্যক্তির ঈমান সর্বাধিক পূর্ণাঙ্গ, যার চরিত্র সর্বাধিক সুন্দর।",
+    24: "বলপ্রয়োগ করে কাউকে পরাভূতকারী প্রকৃত বীর নয়, বরং সেই ব্যক্তিই প্রকৃত বীর যে রাগের সময় নিজেকে নিয়ন্ত্রণ করতে পারে।",
+    25: "লজ্জাশীলতা ঈমানের একটি বিশেষ শাখা।",
+    26: "তোমাদের মধ্যে সেই ব্যক্তি সর্বোত্তম, যে তার পরিবারের কাছে সর্বোত্তম। আর আমি আমার পরিবারের কাছে তোমাদের চেয়ে উত্তম।",
+    27: "মায়ের পায়ের নিচেই সন্তানের জান্নাত (পিতামাতার সন্তুষ্টিতেই জান্নাত)।",
+    28: "যে ব্যক্তি আল্লাহ ও পরকালের প্রতি ঈমান রাখে, সে যেন তার আত্মীয়তার সম্পর্ক বজায় রাখে।",
+    29: "জ্ঞান অর্জন করা প্রত্যেক মুসলিম নর-নারীর ওপর ফরজ।",
+    30: "যে ব্যক্তি জ্ঞান অর্জনের উদ্দেশ্যে কোনো পথে বের হয়, আল্লাহ তার জন্য জান্নাতের পথ সহজ করে দেন।",
+    31: "তোমাদের মধ্যে সর্বোত্তম ব্যক্তি সে, যে নিজে কুরআন শিখে এবং অন্যকে তা শিক্ষা দেয়।",
+    32: "মানুষ যখন মৃত্যুবরণ করে তখন তার তিনটি আমল ব্যতীত সকল আমল বন্ধ হয়ে যায়: সদকায়ে জারিয়া, উপকারী জ্ঞান এবং নেককার সন্তান যে তার জন্য দোয়া করে।",
+    33: "সত্যবাদী ও বিশ্বস্ত ব্যবসায়ী কিয়ামতের দিন নবীগণ, সিদ্দিকীন ও শহীদদের সাথে থাকবেন।",
+    34: "ক্রেতা ও বিক্রেতা উভয়ের জন্যই চুক্তি বাতিল করার অধিকার থাকে যতক্ষণ না তারা পরস্পর পৃথক হয়।",
+    35: "আল্লাহ ব্যবসাকে হালাল করেছেন এবং সুদকে হারাম ঘোষণা করেছেন।",
+    36: "যে ব্যক্তি আমাদের সাথে প্রতারণা বা ধোঁকাবাজি করে, সে আমাদের দলভুক্ত নয়।"
+  };
+  return bnMap[id] || "আল্লাহর রাসুল (সাঃ) এর বিশুদ্ধ হাদিস।";
+}
+
+
 function applyFilters() {
   const query = document.getElementById('searchInput').value.trim().toLowerCase();
   const grid = document.getElementById('hadithGrid');
@@ -1406,6 +1539,8 @@ function applyFilters() {
   const title = document.getElementById('sectionTitle');
 
   let filtered = hadiths.filter(h => {
+    const gradeMatch = activeGrade === 'all' || h.grade === activeGrade;
+    const bnText = h.bnText || getBengaliFallback(h.id);
     const colMatch = activeCol === 'all' || h.collection === activeCol;
     const catMatch = activeCat === 'all' || h.category === activeCat;
     const searchMatch = !query ||
@@ -1414,7 +1549,8 @@ function applyFilters() {
       h.narrator.toLowerCase().includes(query) ||
       h.collection.toLowerCase().includes(query) ||
       h.category.toLowerCase().includes(query);
-    return colMatch && catMatch && searchMatch;
+    const bnSearchMatch = !query || bnText.toLowerCase().includes(query);
+    return colMatch && catMatch && gradeMatch && (searchMatch || bnSearchMatch);
   });
 
   document.getElementById('resultsCount').textContent = `${filtered.length} hadith${filtered.length !== 1 ? 's' : ''}`;
@@ -1438,6 +1574,13 @@ function applyFilters() {
 //  FILTER BUTTONS
 // ═════════════════════════════════════════════
 function setFilter(type, value, btn) {
+  if (type === 'grade') {
+    activeGrade = value;
+    document.querySelectorAll('[data-grade]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+    return;
+  }
   if (type === 'col') {
     activeCol = value;
     document.querySelectorAll('#collectionFilters .filter-btn').forEach(b => b.classList.remove('active'));
